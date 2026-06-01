@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+venv/
+.venv/
+env/
+.env
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Dataset files
+dataset/*
+!dataset/.gitkeep
+
+# Trained models and generated labels
+model/*
+!model/.gitkeep
+
+# Training outputs
+outputs/*
+!outputs/.gitkeep
+
+# Logs
+*.log
+logs/
