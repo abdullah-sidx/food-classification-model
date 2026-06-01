@@ -25,12 +25,11 @@ The project trains a CNN-based classifier on the Food-101 dataset using MobileNe
 food-classification/
 |
 +-- dataset/
-|   +-- food-mini/
-|       +-- burger/
-|       +-- ice_cream/
-|       +-- pizza/
-|       +-- ramen/
-|       +-- sushi/
+|   +-- food-101/
+|       +-- apple_pie/
+|       +-- baby_back_ribs/
+|       +-- ...
+|       +-- waffles/
 |
 +-- model/
 |   +-- food_model.h5
@@ -62,29 +61,48 @@ food-classification/
 
 ## Dataset
 
-This project is currently configured to train on a smaller Food-101-style mini dataset first:
+This project was trained for the full Food-101 class set. The dataset is not committed to GitHub because it is large, but the local training folder should be arranged as class folders under:
 
 ```text
-dataset/food-mini/
+dataset/food-101/
 ```
 
-The code reads class names automatically from folder names. Your dataset should look like:
+The code reads class names automatically from folder names. The dataset should look like:
 
 ```text
-dataset/food-mini/
-+-- burger/
-+-- ice_cream/
+dataset/food-101/
++-- apple_pie/
++-- baby_back_ribs/
++-- baklava/
 +-- pizza/
-+-- ramen/
-+-- sushi/
++-- waffles/
 ```
 
 Each class folder should contain images for that food category.
 
-To train on the full Food-101 dataset later, place it in `dataset/food-101/` and run:
+Supported Food-101 categories:
 
-```bash
-python train.py --dataset-dir dataset/food-101
+```text
+apple_pie, baby_back_ribs, baklava, beef_carpaccio, beef_tartare,
+beet_salad, beignets, bibimbap, bread_pudding, breakfast_burrito,
+bruschetta, caesar_salad, cannoli, caprese_salad, carrot_cake,
+ceviche, cheesecake, cheese_plate, chicken_curry, chicken_quesadilla,
+chicken_wings, chocolate_cake, chocolate_mousse, churros, clam_chowder,
+club_sandwich, crab_cakes, creme_brulee, croque_madame, cup_cakes,
+deviled_eggs, donuts, dumplings, edamame, eggs_benedict, escargots,
+falafel, filet_mignon, fish_and_chips, foie_gras, french_fries,
+french_onion_soup, french_toast, fried_calamari, fried_rice,
+frozen_yogurt, garlic_bread, gnocchi, greek_salad,
+grilled_cheese_sandwich, grilled_salmon, guacamole, gyoza, hamburger,
+hot_and_sour_soup, hot_dog, huevos_rancheros, hummus, ice_cream,
+lasagna, lobster_bisque, lobster_roll_sandwich, macaroni_and_cheese,
+macarons, miso_soup, mussels, nachos, omelette, onion_rings, oysters,
+pad_thai, paella, pancakes, panna_cotta, peking_duck, pho, pizza,
+pork_chop, poutine, prime_rib, pulled_pork_sandwich, ramen, ravioli,
+red_velvet_cake, risotto, samosa, sashimi, scallops, seaweed_salad,
+shrimp_and_grits, spaghetti_bolognese, spaghetti_carbonara,
+spring_rolls, steak, strawberry_shortcake, sushi, tacos, takoyaki,
+tiramisu, tuna_tartare, waffles
 ```
 
 ## Installation
@@ -119,10 +137,10 @@ pip install -r requirements.txt
 
 ## Training
 
-Place the mini class folders inside `dataset/food-mini/`, then run:
+Place the full Food-101 class folders inside `dataset/food-101/`, then run:
 
 ```bash
-python train.py
+python train.py --dataset-dir dataset/food-101
 ```
 
 To customize training:
